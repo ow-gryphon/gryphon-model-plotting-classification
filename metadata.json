@@ -1,13 +1,14 @@
 {
-    "display_name": "",
-    "command": "",
-    "dependencies": [],
+    "display_name": "Plotting tools for classification modeling (bivariate, performance, and diagnostics plots)",
+    "command": "generate",
+    "dependencies": ["pandas", "numpy", "matplotlib", "seaborn", "scipy", "jupyter"],
 
-    "keywords": [],
-    "methodology": [],
+    "keywords": ["Bivariate", "Classification", "Model diagnostics"],
+    "methodology": ["Classification"],
     "topic": [],
 
-    "description": "",
-    "author": "",
-    "author_email": ""
+    "description": "Plots to understand relationships between variables and model performance for binary target variables. This imports the Data Exploration template",
+    "author": "Daniel Wang",
+    "author_email": "daniel.wang@oliverwyman.com",
+    "read_more_link": "https://github.com/ow-gryphon/gryphon-model-plotting-classification"
 }
