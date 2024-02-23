@@ -31,7 +31,7 @@ _inverse_scaling_functions = {"linear": _linear, "log": _exp, "logit": _invlogit
 
 def bivariate_continuous(used_data, y_var, x_var, num_buckets=20, y_scale="linear", x_scale="linear",
                          with_count=True, with_CI = False,
-                         lower=-np.inf, upper=np.inf, trendline=False, header=None):
+                         lower=-np.inf, upper=np.inf, trendline=False, header=None, figsize=(4,3)):
     """
     Generates bivariate plots for continuous variables, where the data is bucketed based on x-variable percentiles.
     Provides option to scale the y-axis and count of observations in each bucket (in case there is concentration)
@@ -80,7 +80,7 @@ def bivariate_continuous(used_data, y_var, x_var, num_buckets=20, y_scale="linea
     # Sort dataset
     plot_dataset = plot_dataset.sort_values(by=x_var)
 
-    fig, ax1 = plt.subplots()
+    fig, ax1 = plt.subplots(figsize=figsize)
     ax1.scatter(x=plot_dataset[x_var].values, y=plot_dataset[y_var].values)
     if with_CI:
         ax1.vlines(plot_dataset[x_var].values,
@@ -123,7 +123,7 @@ def bivariate_continuous(used_data, y_var, x_var, num_buckets=20, y_scale="linea
 
 
 def bivariate_categorical(used_data, y_var, x_var, discrete=True, y_scale="linear",
-                          with_count=True, with_CI = False, lower=-np.inf, upper=np.inf, header=None):
+                          with_count=True, with_CI = False, lower=-np.inf, upper=np.inf, header=None, figsize=(4,3)):
 
     """
     Generates bivariate plots for categorical or discrete variables, where data is grouped by each distinct value of the x-variable. Provides option to scale the y-axis and count of observations in each bucket (in case there is concentration)
@@ -168,7 +168,7 @@ def bivariate_categorical(used_data, y_var, x_var, discrete=True, y_scale="linea
     plot_dataset = plot_dataset.sort_index()
 
     # Generate plots
-    fig, ax1 = plt.subplots()
+    fig, ax1 = plt.subplots(figsize=figsize)
     if discrete:
         ax1.scatter(x=plot_dataset.index.values, y=plot_dataset[y_var].values)
         if with_CI:
